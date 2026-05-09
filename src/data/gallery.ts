@@ -78,9 +78,9 @@ const graduation: GalleryImage[] = [
   {
     id: 'graduation-2',
     categoryId: 'graduation',
-    title: 'Portrait with diploma',
-    src: u('photo-1627556704290-2b3aa652854b'),
-    alt: 'Graduate in cap and gown smiling with diploma',
+    title: 'Cheering at commencement',
+    src: u('photo-1546519638-68e109498ffc'),
+    alt: 'Graduates in caps and gowns cheering together at commencement',
   },
   {
     id: 'graduation-3',

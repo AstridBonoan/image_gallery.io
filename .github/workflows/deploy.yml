@@ -25,6 +25,7 @@ jobs:
           node-version: "20"
           cache: npm
       - run: npm ci
+      - run: npm run verify:gallery
       - run: npm run build
       - name: Verify dist is a Vite production build
         run: |
