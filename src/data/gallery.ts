@@ -124,8 +124,8 @@ const weddings: GalleryImage[] = [
     id: 'weddings-4',
     categoryId: 'weddings',
     title: 'Celebration moment',
-    src: u('photo-1522673606160-899fe6f42d7c'),
-    alt: 'Happy bride and groom laughing together',
+    src: u('photo-1519225421980-715cb0215aed'),
+    alt: 'Happy bride and groom laughing together during outdoor reception',
   },
 ]
 
