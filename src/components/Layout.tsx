@@ -1,19 +1,14 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
-import { Outlet, useLocation } from 'react-router-dom'
+import { Outlet } from 'react-router-dom'
 import { Footer } from './Footer'
 import { Header } from './Header'
 import { SideNav } from './SideNav'
 
 const SITE_TITLE = 'Lens & Light'
 
-/** Header row ~py-3 + h-11 control — keeps first paint as header + hero only (footer below fold). */
-const MAIN_MIN_HOME = 'min-h-[calc(100dvh-5rem)]'
-
 export function Layout() {
   const [navOpen, setNavOpen] = useState(false)
   const menuButtonRef = useRef<HTMLButtonElement>(null)
-  const { pathname } = useLocation()
-  const isHome = pathname === '/' || pathname === ''
 
   /** Move focus to the menu trigger before hiding the panel so nothing focused stays under aria-hidden. */
   const closeNav = useCallback(() => {
@@ -48,26 +43,26 @@ export function Layout() {
   }, [])
 
   return (
-    <div className="flex min-h-dvh flex-col">
-      <Header
-        ref={menuButtonRef}
-        siteTitle={SITE_TITLE}
-        menuOpen={navOpen}
-        onOpenNav={() => setNavOpen(true)}
-      />
-      <SideNav open={navOpen} onClose={closeNav} siteTitle={SITE_TITLE} />
+    <>
+      {/*
+        First screen = exactly one viewport: header + main fill 100dvh.
+        Footer is NOT inside this flex stack so it cannot peek into the initial view.
+      */}
+      <div className="flex min-h-dvh flex-col">
+        <Header
+          ref={menuButtonRef}
+          siteTitle={SITE_TITLE}
+          menuOpen={navOpen}
+          onOpenNav={() => setNavOpen(true)}
+        />
+        <SideNav open={navOpen} onClose={closeNav} siteTitle={SITE_TITLE} />
 
-      <main
-        className={
-          isHome
-            ? `flex flex-1 flex-col ${MAIN_MIN_HOME}`
-            : 'flex min-h-0 flex-1 flex-col'
-        }
-      >
-        <Outlet />
-      </main>
+        <main className="flex min-h-0 flex-1 flex-col">
+          <Outlet />
+        </main>
+      </div>
 
       <Footer />
-    </div>
+    </>
   )
 }
