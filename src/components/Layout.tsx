@@ -42,7 +42,7 @@ export function Layout() {
       />
       <SideNav open={navOpen} onClose={closeNav} siteTitle={SITE_TITLE} />
 
-      <main className="flex-1">
+      <main className="flex min-h-0 flex-1 flex-col">
         <Outlet />
       </main>
 
