@@ -1,14 +1,8 @@
 const portraitSrc = 'https://picsum.photos/seed/lensportrait/600/760'
 
-/** Full viewport below sticky header on lg+ so the footer stays off-screen until scroll. */
-const heroViewport =
-  'lg:min-h-[calc(100dvh-4.75rem)] lg:max-h-[calc(100dvh-4.75rem)] lg:overflow-hidden'
-
 export function HomePage() {
   return (
-    <section
-      className={`mx-auto flex w-full max-w-6xl flex-1 flex-col px-4 py-4 sm:px-6 sm:py-5 lg:px-8 ${heroViewport}`}
-    >
+    <section className="mx-auto flex min-h-0 w-full max-w-6xl flex-1 flex-col bg-[var(--color-paper)] px-4 py-4 sm:px-6 sm:py-5 lg:min-h-0 lg:px-8 lg:overflow-hidden">
       <header className="shrink-0 text-center">
         <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-[var(--color-accent)] sm:text-xs">
           Photography & visual stories
