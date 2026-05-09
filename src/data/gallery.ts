@@ -36,6 +36,9 @@ export const categories: GalleryCategory[] = [
 const u = (photoId: string) =>
   `https://images.unsplash.com/${photoId}?auto=format&fit=crop&w=900&h=1200&q=85`
 
+/** Files in `public/gallery/` — paths respect Vite `base` on GitHub Pages. */
+const localGallery = (file: string) => `${import.meta.env.BASE_URL}gallery/${file}`
+
 const automobile: GalleryImage[] = [
   {
     id: 'automobile-1',
@@ -71,30 +74,30 @@ const graduation: GalleryImage[] = [
   {
     id: 'graduation-1',
     categoryId: 'graduation',
-    title: 'Caps in the air',
-    src: u('photo-1523240795612-9a054b0db644'),
-    alt: 'Graduates tossing caps in celebration outdoors',
+    title: 'Arena commencement',
+    src: localGallery('graduation-1.png'),
+    alt: 'Wide view of graduates facing a decorated stage and podium in a large arena',
   },
   {
     id: 'graduation-2',
     categoryId: 'graduation',
-    title: 'Cheering at commencement',
-    src: u('photo-1546519638-68e109498ffc'),
-    alt: 'Graduates in caps and gowns cheering together at commencement',
+    title: 'Celebrating on campus',
+    src: localGallery('graduation-2.png'),
+    alt: 'Graduates in caps and gowns outdoors with stoles, smiling and giving thumbs up',
   },
   {
     id: 'graduation-3',
     categoryId: 'graduation',
-    title: 'Friends on campus',
-    src: u('photo-1571260899304-425eee4c7efc'),
-    alt: 'Graduates in gowns celebrating together on campus',
+    title: 'Friends at commencement',
+    src: localGallery('graduation-3.png'),
+    alt: 'Two graduates in caps and gowns smiling together at an outdoor ceremony',
   },
   {
     id: 'graduation-4',
     categoryId: 'graduation',
-    title: 'Ceremony crowd',
-    src: u('photo-1544531586-fde5298cdd40'),
-    alt: 'Graduation ceremony with graduates in caps and gowns seated',
+    title: 'Caps in the sky',
+    src: localGallery('graduation-4.png'),
+    alt: 'Graduation caps tossed into a bright sky with a diploma held in the foreground',
   },
 ]
 
