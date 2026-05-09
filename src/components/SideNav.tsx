@@ -23,7 +23,7 @@ const subLinkClass = ({ isActive }: { isActive: boolean }) =>
 
 export function SideNav({ open, onClose, siteTitle }: SideNavProps) {
   return (
-    <>
+    <div className="lg:hidden">
       <div
         role="presentation"
         className={[
@@ -81,7 +81,7 @@ export function SideNav({ open, onClose, siteTitle }: SideNavProps) {
           </NavLink>
         </nav>
       </aside>
-    </>
+    </div>
   )
 }
 

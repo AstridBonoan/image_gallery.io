@@ -32,6 +32,16 @@ export function Layout() {
     return () => window.removeEventListener('keydown', onKey)
   }, [navOpen, closeNav])
 
+  useEffect(() => {
+    const mq = window.matchMedia('(min-width: 1024px)')
+    const onChange = () => {
+      if (mq.matches) setNavOpen(false)
+    }
+    mq.addEventListener('change', onChange)
+    onChange()
+    return () => mq.removeEventListener('change', onChange)
+  }, [])
+
   return (
     <div className="flex min-h-dvh flex-col">
       <Header
