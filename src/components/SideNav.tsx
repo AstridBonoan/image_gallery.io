@@ -41,6 +41,7 @@ export function SideNav({ open, onClose, siteTitle }: SideNavProps) {
           open ? 'translate-x-0' : 'translate-x-full',
         ].join(' ')}
         aria-hidden={!open}
+        inert={!open ? true : undefined}
       >
         <div className="flex items-center justify-between gap-3 border-b border-black/10 px-4 py-3">
           <span className="font-[family-name:var(--font-display)] text-lg font-semibold text-[var(--color-ink)]">

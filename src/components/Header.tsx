@@ -1,3 +1,4 @@
+import { forwardRef } from 'react'
 import { Link } from 'react-router-dom'
 
 type HeaderProps = {
@@ -6,7 +7,10 @@ type HeaderProps = {
   onOpenNav: () => void
 }
 
-export function Header({ siteTitle, menuOpen, onOpenNav }: HeaderProps) {
+export const Header = forwardRef<HTMLButtonElement, HeaderProps>(function Header(
+  { siteTitle, menuOpen, onOpenNav },
+  ref,
+) {
   return (
     <header className="sticky top-0 z-30 border-b border-black/10 bg-[var(--color-paper)]/90 backdrop-blur-md">
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3 sm:px-6 lg:px-8">
@@ -17,6 +21,7 @@ export function Header({ siteTitle, menuOpen, onOpenNav }: HeaderProps) {
           {siteTitle}
         </Link>
         <button
+          ref={ref}
           type="button"
           onClick={onOpenNav}
           className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-black/10 bg-white text-[var(--color-ink)] shadow-sm transition hover:border-[var(--color-accent)] hover:text-[var(--color-accent)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent)]"
@@ -29,7 +34,7 @@ export function Header({ siteTitle, menuOpen, onOpenNav }: HeaderProps) {
       </div>
     </header>
   )
-}
+})
 
 function MenuIcon({ className }: { className?: string }) {
   return (
